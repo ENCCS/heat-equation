@@ -22,6 +22,14 @@ LDFLAGS=
 LIBS=-lpng
 endif
 
+ifeq ($(COMP),nv)
+FC=mpif90
+CC=nvc
+CCFLAGS=-g -O3 -Wall -I$(COMMONDIR)
+LDFLAGS=
+LIBS=-lpng
+endif
+
 
 EXE=heat_mpi
 OBJS=main.o heat_mod.o core.o setup.o utilities.o io.o pngwriter_mod.o

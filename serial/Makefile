@@ -20,6 +20,14 @@ LDFLAGS=
 LIBS=-lpng
 endif
 
+ifeq ($(COMP),nv)
+CXX=nvc++
+CC=nvc
+CCFLAGS=-g -O3 -fopenmp -Wall -I$(COMMONDIR)
+LDFLAGS=
+LIBS=-lpng
+endif
+
 ifeq ($(COMP),intel)
 CXX=icpx
 CC=icx

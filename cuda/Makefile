@@ -24,6 +24,16 @@ LDFLAGS=
 LIBS=-lpng -lcudart
 endif
 
+ifeq ($(COMP),nv)
+CXX=mpicxx
+CC=nvc
+NVCC=nvcc
+NVCCFLAGS=-g -O3 -I$(COMMONDIR)
+CCFLAGS=-g -O3 -Wall -I$(COMMONDIR)
+LDFLAGS=
+LIBS=-lpng
+endif
+
 EXE=heat_cuda
 OBJS=main.o core.o core_cuda.o setup.o utilities.o io.o 
 OBJS_PNG=$(COMMONDIR)/pngwriter.o

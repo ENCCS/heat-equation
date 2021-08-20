@@ -15,7 +15,15 @@ endif
 ifeq ($(COMP),gnu)
 CXX=mpicxx
 CC=gcc
-CCFLAGS=-g -O0 -Wall -I$(COMMONDIR)
+CCFLAGS=-g -O3 -Wall -I$(COMMONDIR)
+LDFLAGS=
+LIBS=-lpng
+endif
+
+ifeq ($(COMP),nv)
+CXX=mpicxx
+CC=nvc
+CCFLAGS=-g -O3 -Wall -I$(COMMONDIR)
 LDFLAGS=
 LIBS=-lpng
 endif

@@ -13,6 +13,14 @@ LDFLAGS=-Mcuda -L$(CUDA_INSTALL_ROOT)/lib64
 LIBS=-lpng
 endif
 
+ifeq ($(COMP),nv)
+FC=mpif90
+CC=nvc
+CCFLAGS=-g -O3 -Wall -I$(COMMONDIR)
+LDFLAGS=
+LIBS=-lpng
+endif
+
 EXE=heat_cuda
 OBJS=main.o heat_mod.o core.o core_cuda.o setup.o utilities.o io.o pngwriter_mod.o
 OBJS_PNG=$(COMMONDIR)/pngwriter.o
